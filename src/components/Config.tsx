@@ -11,37 +11,36 @@ export default function Config(props: ConfigProps) {
   return (
     <section>
       <fieldset className='grid'>
-        <label>
-          Native{' '}
+        <div>
           <input
+            name='isSino'
             type='checkbox'
             role='switch'
             onChange={props.nativeHandler}
             checked={props.isSino}
-          />{' '}
-          Sino{' '}
-        </label>
-        <label>
-          {' '}
-          Read{' '}
+          />
+          <label htmlFor='isSino'>Native / Sino</label>
+        </div>
+        <div>
           <input
+            name='isWrite'
             type='checkbox'
             role='switch'
             onChange={props.readHandler}
             checked={props.isWrite}
           />
-          Write
-        </label>
-        <label>
-          Numbers{' '}
+          <label htmlFor='isWrite'>Read / Write</label>
+        </div>
+        <div>
           <input
+            name='isHangul'
             type='checkbox'
             role='switch'
             onChange={props.numberHandler}
             checked={props.isHangul}
-          />{' '}
-          Hangul{' '}
-        </label>
+          />
+          <label htmlFor='isHangul'>Digits / Hangul</label>
+        </div>
       </fieldset>
     </section>
   )

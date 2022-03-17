@@ -110,7 +110,9 @@ export default function Exercise(props: ExerciseProps) {
           <button onClick={next}>Next</button>
         </div>
         <div>
-          <button className='secondary' onClick={() => setDisplayResult(true)}>See result</button>
+          <button className='secondary' onClick={() => setDisplayResult(true)}>
+            See result
+          </button>
         </div>
       </section>
     </>
