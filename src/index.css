@@ -16,6 +16,6 @@ fieldset {
 }
 
 footer {
-  position: absolute !important;
+  position: fixed !important;
   bottom: 0;
 }

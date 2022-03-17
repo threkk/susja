@@ -13,7 +13,7 @@ export default function Config(props: ConfigProps) {
       <fieldset className='grid'>
         <div>
           <input
-            name='isSino'
+            id='isSino'
             type='checkbox'
             role='switch'
             onChange={props.nativeHandler}
@@ -23,7 +23,7 @@ export default function Config(props: ConfigProps) {
         </div>
         <div>
           <input
-            name='isWrite'
+            id='isWrite'
             type='checkbox'
             role='switch'
             onChange={props.readHandler}
@@ -33,7 +33,7 @@ export default function Config(props: ConfigProps) {
         </div>
         <div>
           <input
-            name='isHangul'
+            id='isHangul'
             type='checkbox'
             role='switch'
             onChange={props.numberHandler}
