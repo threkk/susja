@@ -1,12 +1,21 @@
-@import "../node_modules/@picocss/pico/css/pico.css";
+@import '../node_modules/@picocss/pico/css/pico.css';
 
 :root {
-  --primary: #0047A0 !important;
-  --primary-hover: #235A9F !important;
-  --secondary: #CD2E3A !important;
-  --secondary-hover: #C54F58 !important;
+  --primary: #0047a0 !important;
+  --primary-hover: #235a9f !important;
+  --secondary: #cd2e3a !important;
+  --secondary-hover: #c54f58 !important;
 }
 
 .grid {
   grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+}
+
+fieldset {
+  text-align: center;
+}
+
+footer {
+  position: absolute !important;
+  bottom: 0;
 }
