@@ -1,10 +1,23 @@
+import numberToNative from '../lib/native'
+import numberToSino from '../lib/sino'
+
 export default function CheatSheet() {
+  const rows = Array(100)
+    .fill(null)
+    .map((_, i) => (
+      <tr key={i}>
+        <th scope='row'>{i}</th>
+        <td className='number'>{numberToNative(i)}</td>
+        <td className='number'>{numberToSino(i)}</td>
+      </tr>
+    ))
+
   return (
     <aside>
       <details>
         <summary>Cheat sheet</summary>
         <figure>
-          <table>
+          <table role='grid'>
             <thead>
               <tr>
                 <th scope='col'>#</th>
@@ -12,13 +25,7 @@ export default function CheatSheet() {
                 <th scope='col'>Sino Korean</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope='row'>1</th>
-                <td>Cell</td>
-                <td>Cell</td>
-              </tr>
-            </tbody>
+            <tbody>{rows}</tbody>
           </table>
         </figure>
       </details>

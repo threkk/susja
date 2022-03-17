@@ -8,8 +8,9 @@
     "preview": "vite preview",
     "lint": "tsc --noEmit && eslint src/**/*.tsx",
     "fix": "eslint --fix src/**/*.tsx",
-    "format": "prettier -w src/"
-
+    "format": "prettier -w src/",
+    "test": "vitest run",
+    "watch": "vitest watch"
   },
   "dependencies": {
     "@picocss/pico": "^1.5.0",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "vite": "^2.8.0",
+    "vitest": "^0.6.3"
   }
 }

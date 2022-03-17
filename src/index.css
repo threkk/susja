@@ -1,19 +1,12 @@
-@import '../node_modules/@picocss/pico/css/pico.css';
+@import "../node_modules/@picocss/pico/css/pico.css";
+
+:root {
+  --primary: #0047A0 !important;
+  --primary-hover: #235A9F !important;
+  --secondary: #CD2E3A !important;
+  --secondary-hover: #C54F58 !important;
+}
 
 .grid {
   grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }

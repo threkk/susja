@@ -21,11 +21,7 @@ function App() {
     <main className='container'>
       <article>
         <Config {...configProps} />
-        <Exercise 
-          isHangul={isHangul}
-          isSino={isSino}
-          isWrite={isWrite}
-          />
+        <Exercise isHangul={isHangul} isSino={isSino} isWrite={isWrite} />
       </article>
       <CheatSheet />
     </main>
