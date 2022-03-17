@@ -18,13 +18,21 @@ function App() {
   }
 
   return (
-    <main className='container'>
-      <article>
-        <Config {...configProps} />
-        <Exercise isHangul={isHangul} isSino={isSino} isWrite={isWrite} />
-      </article>
-      <CheatSheet />
-    </main>
+    <>
+      <main className='container'>
+        <article>
+          <Config {...configProps} />
+          <Exercise isHangul={isHangul} isSino={isSino} isWrite={isWrite} />
+        </article>
+        <CheatSheet />
+      </main>
+      <footer className='container-fluid'>
+        <small>
+          Created by <a href='https://threkk.com/'>threkk</a>. Source code
+          avaiable on <a href='https://github.com/threkk/susja'>Github</a>.
+        </small>
+      </footer>
+    </>
   )
 }
 
