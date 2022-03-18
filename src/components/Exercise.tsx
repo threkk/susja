@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import numberToNative from '../lib/native'
 import {
   generateRandomNativeNumber,
@@ -8,11 +8,10 @@ import numberToSino from '../lib/sino'
 
 export interface ExerciseProps {
   isSino: boolean
-  isWrite: boolean
   isHangul: boolean
 }
 
-function WriteExercise(props: {
+function ExerciseInput(props: {
   displayResult: boolean
   isHangul: boolean
   isSino: boolean
@@ -20,8 +19,16 @@ function WriteExercise(props: {
 }) {
   const [val, setVal] = useState('')
 
+  useEffect(() => {
+    setVal('')
+  }, [props.result])
+
   if (props.displayResult) {
-    return <ReadExercise displayResult={true} result={props.result} />
+    return (
+      <h1>
+        <kbd>{props.result}</kbd>
+      </h1>
+    )
   }
 
   if (props.isHangul) {
@@ -36,6 +43,7 @@ function WriteExercise(props: {
         min={props.isSino ? 0 : 1}
         onChange={(ev) => setVal(ev.target.value.trim().toLowerCase())}
         max={99}
+        value={val}
         {...(val !== '' ? { 'aria-invalid': !(val === props.result) } : {})}
       />
     )
@@ -48,23 +56,12 @@ function WriteExercise(props: {
       autoCorrect='off'
       autoCapitalize='off'
       inputMode='text'
+      value={val}
       onChange={(ev) => setVal(ev.target.value.trim().toLowerCase())}
       {...(val !== '' ? { 'aria-invalid': !(val === props.result) } : {})}
     />
   )
 }
-
-function ReadExercise(props: { displayResult: boolean; result: string }) {
-  if (props.displayResult) {
-    return (
-      <h1>
-        <kbd>{props.result}</kbd>
-      </h1>
-    )
-  }
-  return <div aria-busy={!props.displayResult}></div>
-}
-
 export default function Exercise(props: ExerciseProps) {
   const [displayResult, setDisplayResult] = useState(false)
   const [num, setNum] = useState(1)
@@ -84,17 +81,6 @@ export default function Exercise(props: ExerciseProps) {
   const guess = props.isHangul ? resolver(num) : num.toString()
   const result = props.isHangul ? num.toString() : resolver(num)
 
-  const exercise = props.isWrite ? (
-    <WriteExercise
-      displayResult={displayResult}
-      result={result}
-      isHangul={props.isHangul}
-      isSino={props.isSino}
-    />
-  ) : (
-    <ReadExercise displayResult={displayResult} result={result} />
-  )
-
   return (
     <>
       <section className='grid'>
@@ -103,7 +89,13 @@ export default function Exercise(props: ExerciseProps) {
             <kbd>{guess}</kbd>
           </h1>
         </div>
-        <div style={{ textAlign: 'center' }}>{exercise}</div>
+        <div style={{ textAlign: 'center' }}>
+          <ExerciseInput
+            displayResult={displayResult}
+            result={result}
+            {...props}
+          />
+        </div>
       </section>
       <section className='grid'>
         <div>

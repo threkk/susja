@@ -5,15 +5,12 @@ import { useState } from 'react'
 
 function App() {
   const [isSino, setSino] = useState(false)
-  const [isWrite, setWrite] = useState(false)
   const [isHangul, setHangul] = useState(false)
 
   const configProps: ConfigProps = {
     isSino,
-    isWrite,
     isHangul,
     nativeHandler: () => setSino(!isSino),
-    readHandler: () => setWrite(!isWrite),
     numberHandler: () => setHangul(!isHangul),
   }
 
@@ -22,7 +19,7 @@ function App() {
       <main className='container'>
         <article>
           <Config {...configProps} />
-          <Exercise isHangul={isHangul} isSino={isSino} isWrite={isWrite} />
+          <Exercise isHangul={isHangul} isSino={isSino} />
         </article>
         <CheatSheet />
       </main>

@@ -1,9 +1,7 @@
 export interface ConfigProps {
   isSino: boolean
-  isWrite: boolean
   isHangul: boolean
   nativeHandler: () => void
-  readHandler: () => void
   numberHandler: () => void
 }
 
@@ -11,7 +9,8 @@ export default function Config(props: ConfigProps) {
   return (
     <section>
       <fieldset className='grid'>
-        <div>
+        <label htmlFor='isSino'>
+          {' '}
           <input
             id='isSino'
             type='checkbox'
@@ -19,19 +18,10 @@ export default function Config(props: ConfigProps) {
             onChange={props.nativeHandler}
             checked={props.isSino}
           />
-          <label htmlFor='isSino'>Native / Sino</label>
-        </div>
-        <div>
-          <input
-            id='isWrite'
-            type='checkbox'
-            role='switch'
-            onChange={props.readHandler}
-            checked={props.isWrite}
-          />
-          <label htmlFor='isWrite'>Read / Write</label>
-        </div>
-        <div>
+          Native/Sino
+        </label>
+        <label htmlFor='isHangul'>
+          {' '}
           <input
             id='isHangul'
             type='checkbox'
@@ -39,8 +29,8 @@ export default function Config(props: ConfigProps) {
             onChange={props.numberHandler}
             checked={props.isHangul}
           />
-          <label htmlFor='isHangul'>Digits / Hangul</label>
-        </div>
+          Digits/Hangul
+        </label>
       </fieldset>
     </section>
   )
